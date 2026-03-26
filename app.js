@@ -12,4 +12,10 @@ app.use(corsMiddleware());
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log("Server on in http://localhost:" + PORT);
+  });
+}
+
 export default app;
